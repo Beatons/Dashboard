@@ -1,18 +1,27 @@
-import { BrowserModule } from '@angular/platform-browser';
+import 'hammerjs';
+
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppMaterialModule } from './app.material.module';
 import { AppComponent } from './app.component';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { routes } from './app.routing';
+import { RouterModule } from '@angular/router';
+ 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
+    RouterModule.forRoot(routes),
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    AppMaterialModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent],
+  entryComponents: [],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

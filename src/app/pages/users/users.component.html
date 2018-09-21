@@ -1,0 +1,77 @@
+<div class="mat-typography">
+
+    <h1 class="pad">
+      Users
+    </h1>
+    
+      <div class="pad-left pad-right" fxLayout="row" fxLayoutGap>
+        <div fxFlex="50">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z2 full">
+
+                        <!--- Note that these columns can be defined in any order.
+                              The actual rendered columns are set as a property on the row definition" -->
+                      
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="firstname">
+                          <th mat-header-cell *matHeaderCellDef>First name </th>
+                          <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+                        </ng-container>
+                      
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="lastname">
+                          <th mat-header-cell *matHeaderCellDef>Last name</th>
+                          <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+                        </ng-container>
+                      
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="email">
+                          <th mat-header-cell *matHeaderCellDef>Email</th>
+                          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                        </ng-container>
+                          <!-- Symbol Column -->
+                          <ng-container matColumnDef="phone">
+                              <th mat-header-cell *matHeaderCellDef>Telephone</th>
+                              <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+                            </ng-container>
+                          
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="role">
+                          <th mat-header-cell *matHeaderCellDef>Role</th>
+                          <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+                        </ng-container>
+                      
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                      </table>
+                      
+        </div> 
+        <div class="pad-left pad-right" fxFlex="50">
+
+          <mat-card>
+            <form  (ngSubmit)="onSubmit(userForm)" #userForm="ngForm" fxLayout="column" >
+              <mat-form-field>
+                <input matInput name="firstname" ngModel placeholder="First name" />
+              </mat-form-field>
+              <mat-form-field >
+                <input matInput name="lastname" ngModel placeholder="Last name" />
+              </mat-form-field>
+              <mat-form-field >
+                <input matInput name="email" ngModel placeholder="Email" />
+            </mat-form-field>
+            <mat-form-field >
+              <input matInput name="phone" ngModel placeholder="Telephone" />
+            </mat-form-field>
+            <mat-form-field >
+              <input matInput name="role" ngModel placeholder="Role" />
+            </mat-form-field>
+            <div>
+
+              <button mat-raised-button color="primary">
+                Add new user
+              </button>
+            </div>
+          </form>
+        </mat-card>
+      </div>
+      </div>
+    </div>

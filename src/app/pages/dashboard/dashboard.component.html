@@ -1,0 +1,17 @@
+<div class="mat-typography">
+
+        <h1 class="pad">
+          Dashboard
+        </h1>
+        <div class="pad">
+
+            <mat-form-field>
+                
+                <mat-select placeholder="Select team" multiple [(value)]="selectedTeams">
+                    <mat-option *ngFor="let team of teams" [value]="team">{{ team.name }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+            <cx-charts *ngIf="selectedTeams.length > 0" [lines]="selectedTeams"></cx-charts>
+        </div>
